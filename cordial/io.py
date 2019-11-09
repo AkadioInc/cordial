@@ -231,7 +231,7 @@ class DasIo:
         # only those traces that were selected...
         traces = list()
         t_slice = slice(time_idx[0], time_idx[-1] + 1, 1)
-        actual_stride = min(stride, trace_idx.size)
+        actual_stride = min(stride, len(trace_idx))
         for idx in range(trace_idx[0], trace_idx[-1] + 1, actual_stride):
             ch_tseries = das[t_slice, idx:idx + stride]
             for i in range(0, ch_tseries.shape[1]):
